@@ -62,8 +62,9 @@ var loadProducts = function () {
         }
       }
       //
-    ]).then(function(answer) {
-        var query = 'SELECT * FROM Products WHERE itemID=' + answer.stock_quantity;
+    ])
+    .then(function(answer) {
+        var query = 'SELECT * FROM products WHERE item_id=' + answer.stock_quantity;
         connection.query(query, function(err, res) {
             if (answer.stock_quantity <= res) {
                 for (var i = 0; i < res.length; i++) {
